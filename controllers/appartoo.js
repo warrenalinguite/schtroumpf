@@ -4,7 +4,7 @@ const Schtroumpfs = require('../models/Schtroumpfs');
 
 exports.getOneSchtroumpf = (req, res, next) => {
   
-  Schtroumpfs.findById(req.params.id).then(
+  Schtroumpfs.findById(req.auth.userId).then(
     (schtroumpf) => {
       res.status(200).json(schtroumpf);
     }
