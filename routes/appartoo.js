@@ -5,6 +5,7 @@ const auth = require('../middleware/auth');
 const appartooCtrl = require('../controllers/appartoo');
 
 router.get('/',  appartooCtrl.getAllSchtroumpf);
+router.post('/one', auth, appartooCtrl.getOne);
 router.get('/profil', auth,  appartooCtrl.getOneSchtroumpf);
 router.put('/profile', auth, appartooCtrl.modifySchtroumpf);
 router.put('/deletefriend/:friendid', auth, appartooCtrl.deleteFriend);

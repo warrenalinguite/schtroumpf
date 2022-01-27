@@ -20,6 +20,30 @@ exports.getOneSchtroumpf = (req, res, next) => {
   
 };
 
+exports.getOne = (req, res, next) => {
+  
+  Schtroumpfs.findOne({ email: req.body.email }).then(
+    (schtroumpf) => {
+      res.status(200).json({
+        friend: schtroumpf._id,
+        username: schtroumpf.name,
+        email: schtroumpf.email,
+        role: schtroumpf.role,
+        
+      });
+    }
+  ).catch(
+    (error) => {
+      res.status(400).json({
+        error: error
+      });
+    }
+  );
+
+
+  
+};
+
 
 exports.modifySchtroumpf = (req, res, next) => {
 
